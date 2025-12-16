@@ -62,7 +62,7 @@ const Home = () => {
     <div className="w-full">
       <Navbar />
       {/* Hero Section */}
-      <div className="bg-purple-300 py-12 md:py-20 text-center px-4">
+      <div className="bg-purple-300 pt-28 pb-12 md:py-20 text-center px-4">
         <h1 className="text-2xl md:text-4xl font-extrabold text-gray-800 mb-4">
           FIND YOUR PERFECT VENUE
         </h1>
