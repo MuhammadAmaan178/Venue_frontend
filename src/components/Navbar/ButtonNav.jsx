@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-const ButtonNav = ({ name }) => {
+const ButtonNav = ({ name, fullWidth = false }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper $fullWidth={fullWidth}>
       <button>{name}</button>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
+  width: ${props => props.$fullWidth ? '100%' : 'auto'};
+  
   button {
+    width: ${props => props.$fullWidth ? '100%' : 'auto'};
     cursor: pointer;
     padding: 5px 15px;
     border: unset;

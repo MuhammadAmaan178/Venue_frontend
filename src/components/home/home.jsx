@@ -62,11 +62,11 @@ const Home = () => {
     <div className="w-full">
       <Navbar />
       {/* Hero Section */}
-      <div className="bg-purple-300 py-20 text-center">
-        <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
+      <div className="bg-purple-300 py-12 md:py-20 text-center px-4">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-gray-800 mb-4">
           FIND YOUR PERFECT VENUE
         </h1>
-        <p className="text-gray-700 text-lg mb-6">
+        <p className="text-gray-700 text-sm md:text-lg mb-6">
           Discover and book amazing venues for your special events in Karachi
         </p>
 
