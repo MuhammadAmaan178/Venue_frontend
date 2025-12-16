@@ -17,7 +17,7 @@ import {
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, setIsOpen }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { logout, user } = useAuth();
@@ -69,7 +69,10 @@ const Sidebar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="w-72 bg-[#0f172a] text-white min-h-screen p-6 flex flex-col shadow-2xl relative overflow-hidden">
+    <div
+      className={`fixed lg:fixed top-0 left-0 h-full w-72 bg-[#0f172a] text-white p-6 flex flex-col shadow-2xl z-50 transition-transform duration-300 ease-in-out lg:translate-x-0 overflow-y-auto custom-scrollbar
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+    >
       {/* Subtle decorative glow */}
       <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${theme.gradientStart} to-transparent pointer-events-none`}></div>
 
@@ -80,11 +83,12 @@ const Sidebar = () => {
         <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider font-medium">Management Console</p>
       </div>
 
-      <nav className="space-y-1.5 flex-1 relative z-10 overflow-y-auto mb-6 pr-2 custom-scrollbar">
+      <nav className="space-y-1.5 flex-1 relative z-10 mb-6 pr-2">
         {filteredMenu.map((item, index) => (
           <Link
             key={index}
             to={item.path}
+            onClick={() => setIsOpen(false)} // Close sidebar on mobile when item clicked
             className={`flex items-center gap-3.5 p-3.5 rounded-xl transition-all duration-200 group ${isActive(item.path)
               ? `${theme.activeBg} text-white shadow-lg ${theme.activeShadow} translate-x-1`
               : 'text-slate-400 hover:bg-slate-800/50 hover:text-white hover:translate-x-1'
@@ -101,7 +105,7 @@ const Sidebar = () => {
         ))}
       </nav>
 
-      <div className="pt-6 border-t border-slate-800 space-y-2 relative z-10">
+      <div className="pt-6 border-t border-slate-800 space-y-2 relative z-10 mt-auto">
         <button
           onClick={() => navigate('/venues')}
           className="flex items-center gap-3 p-3 text-slate-400 hover:bg-slate-800 rounded-xl transition-all w-full group hover:text-white"
