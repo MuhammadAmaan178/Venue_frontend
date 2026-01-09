@@ -52,6 +52,11 @@ const BookingSection = ({ venue }) => {
       return;
     }
 
+    if (user.role === 'owner') {
+      alert('You are logged in as an Venue Owner.\n\nPlease login with a Customer account to book venues.');
+      return;
+    }
+
     if (!selectedDate || !selectedSlot) {
       alert('Please select date and time slot');
       return;
