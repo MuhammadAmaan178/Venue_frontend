@@ -15,7 +15,7 @@ const DashboardLayout = ({ children }) => {
             {/* Mobile Sidebar Toggle */}
             <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="lg:hidden fixed top-4 right-4 z-[60] bg-white p-2 rounded-full shadow-lg text-slate-700"
+                className="lg:hidden fixed top-4 left-4 z-[60] bg-white p-2 rounded-full shadow-lg text-slate-700"
             >
                 {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
