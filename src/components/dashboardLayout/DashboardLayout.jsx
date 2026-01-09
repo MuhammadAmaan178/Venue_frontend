@@ -30,7 +30,7 @@ const DashboardLayout = ({ children }) => {
 
             <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-            <div className="flex-1 w-full lg:ml-72 p-4 lg:p-8">
+            <div className="flex-1 w-full lg:ml-72 p-4 pt-16 lg:p-8">
                 <Header userName={user.name || 'Owner'} />
                 <div className="mt-6">
                     {children}
