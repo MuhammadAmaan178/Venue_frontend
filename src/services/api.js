@@ -1,5 +1,5 @@
 // src/services/api.js
-export const API_BASE_URL = 'https://amaan909-venue-finder.hf.space';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 console.log("Current API Base URL:", API_BASE_URL);
 
 const handleResponse = async (response) => {

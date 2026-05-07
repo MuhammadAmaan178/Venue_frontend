@@ -119,14 +119,18 @@ const VenueBookingForm = () => {
                 bookingPayload.payment_method = 'bank-transfer';
             }
 
-            await bookingService.createBooking(bookingPayload, token);
+            const response = await bookingService.createBooking(bookingPayload, token);
 
-            setShowSuccess(true);
+            if (response && response.booking_id) {
+                setShowSuccess(true);
 
-            // Redirect after success
-            setTimeout(() => {
-                navigate('/');
-            }, 3000);
+                // Redirect after success
+                setTimeout(() => {
+                    navigate('/');
+                }, 3000);
+            } else {
+                throw new Error("Invalid response received from the server. The booking was not created.");
+            }
 
         } catch (err) {
             console.error("Booking failed:", err);

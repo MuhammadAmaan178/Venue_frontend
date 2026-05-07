@@ -230,9 +230,7 @@ const Dashboard = () => {
           )}
         </div>
       </div>
-    </div>
-
-      {/* Modals */ }
+      {/* Modals */}
   {
     showVenueDetails && (
       <VenueDetailsModal
